@@ -17,13 +17,19 @@
         <div class="navbarItem right"><a href="/signin">Sign in</a></div>
         <div class="navbarItem right"><a href="/login">Log in</a></div>
       </div>
-
-      <div class="container">
-        <button class="uploadBtn">Upload document</button>
+      
+      
+      <div class="container">  
+        <form action = "{% url 'fileApp:upload' %}" method = "POST" enctype = "multipart/form-data">
+          <input type = "text" name = "filename" placeholder = "Enter your file name">
+          <input type = "file" name = "uploadfiles">
+          {% csrf_token %}
+          <button class="uploadBtn">Upload document</button>
+        </form>
       </div>
       <footer>
         <div>
-          copyright@checkYourCrib
+          Copyright@2078 || Plagiarism Detector
         </div>
       </footer>
 </body>

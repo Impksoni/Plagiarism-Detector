@@ -16,13 +16,13 @@
         <div class="navbarItem left"><a href="#">News</a></div>
         <div class="navbarItem left"><a href="#">Contact</a></div>
         <div class="navbarItem left"><a href="#">About</a></div> 
-        <div class="navbarItem right"><a href="/signup">Sign Up</a></div>
+        <div class="navbarItem right"><a href="/login">Sign Up</a></div>
         <div class="navbarItem right"><a href="/login">Log in</a></div>
       </div>
       
       
       <div class="container">  
-        <form action = "{% url 'fileApp:upload' %}" method = "POST" enctype = "multipart/form-data">
+        <form action = "{% url 'fileApp:result' %}" method = "POST" enctype = "multipart/form-data">
           <input type = "text" name = "filename" placeholder = "Enter your file name" style="  width: 70%;
           box-sizing: border-box;
           border: 2px solid #ccc;

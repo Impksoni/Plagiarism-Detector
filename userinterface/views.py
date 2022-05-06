@@ -10,13 +10,17 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+    
+
 def send_file(request):
     if request.method == "POST":
         name = request.POST.get("filename")
         myfile = request.FILES.get("uploadfiles")
         myuploadfile(fName=name, myFile=myfile).save()
 
-        return HttpResponse("Uploaded!!")
+        return render(request, 'result.html')
+
+#        return HttpResponse("Uploaded!!")
 
 
 #    return HttpResponse("Hello, world. You're at the  UI.")

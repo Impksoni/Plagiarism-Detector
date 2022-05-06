@@ -6,5 +6,5 @@ app_name = "fileApp"
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.login, name='login'),
-    path('upload/', views.send_file, name = 'upload'),
+    path('result/', views.send_file, name = 'result'),
 ]

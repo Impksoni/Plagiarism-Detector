@@ -60,6 +60,9 @@ body{
   height: 100vh;
 
 }
+#pidt {
+  text-justify: inter-cluster;
+}
 
 .uploadBtn{
   margin: 4px;

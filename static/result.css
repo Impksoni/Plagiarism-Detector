@@ -1,7 +1,25 @@
-th, td{
-  border: 2px solid black
+#result {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
-tr {
-  border: 10px solid red
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+td, th {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  font-family: sans-serif;
+  padding: 25px;
+}
+table{
+  width: 80%;
 }

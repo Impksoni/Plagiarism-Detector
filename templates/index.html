@@ -1,47 +1,23 @@
-{% load static %}
+{% extends 'layout.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href= {% static 'index.css' %} >
-</head>
+{% block content %}
 
-<body>
-      <div class="navbar">
-        <div class="navbarItem left"><a href="/">Home</a></div>
-        <div class="navbarItem left"><a href="#">News</a></div>
-        <div class="navbarItem left"><a href="#">Contact</a></div>
-        <div class="navbarItem left"><a href="#">About</a></div> 
-        <div class="navbarItem right"><a href="/login">Sign Up</a></div>
-        <div class="navbarItem right"><a href="/login">Log in</a></div>
-      </div>
-      
-      
-      <div class="container">  
-        <form action = "{% url 'fileApp:result' %}" method = "POST" enctype = "multipart/form-data">
-          <input type = "text" name = "filename" placeholder = "Enter your file name" style="  width: 70%;
-          box-sizing: border-box;
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          font-size: 16px;
-          background-color: white;
-          background-image: url('searchicon.png');
-          background-position: 10px 10px; 
-          background-repeat: no-repeat;
-          padding: 12px 20px 12px 40px;">
-          <input type = "file" name = "uploadfiles">
-          {% csrf_token %}
-          <button class="uploadBtn">Submit document</button>
-        </form>
-      </div>
-      <footer>
-        <div>
-          Copyright@2078 || Plagiarism Detector
-        </div>
-      </footer>
-</body>
-</html>
+<div class="container">  
+  <form action = "{% url 'fileApp:result' %}" method = "POST" enctype = "multipart/form-data">
+    <input type = "text" name = "filename" placeholder = "Enter your file name" style="  width: 70%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;">
+    <input type = "file" name = "uploadfiles">
+    {% csrf_token %}
+    <button class="uploadBtn">Submit document</button>
+  </form>
+</div>
+
+{% endblock content %}

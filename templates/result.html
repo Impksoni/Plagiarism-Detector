@@ -12,25 +12,34 @@
 <body>
   <div id="result">
     <table>
-      <tr>
-        <th>Document Name</th>
-        <th>% plagarized</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>A comparative study of ANN.</td>
-        <td>40</td>
-        <td>passed</td>
-      </tr>
-      <tr>
-        <td>A comparative study of ANN2.</td>
-        <td>20</td>
-        <td>fail</td>
-      </tr>
+      <thead>
+        <tr id="this">
+          <th>Document Name</th>
+          <th>% plagarized</th>
+          <th>plagiarism test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A comparative study of ANN.</td>
+          <td>40</td>
+          <td>fail</td>
+        </tr>
+        <tr>
+          <td>A comparative study of ANN2.</td>
+          <td>20</td>
+          <td>passed</td>
+        </tr>
+        <tr>
+          <td>A comparative study of ANN2.</td>
+          <td>20</td>
+          <td>passed</td>
+        </tr>
+      </tbody>
     </table>
   </div>
   <button><a href = '/'> Goto Home Page</a></button> 
 
-  <script src= {% static 'result.js' %} ></script>
+  <script src= './../static/js/result.js' ></script>
 </body>
 </html>

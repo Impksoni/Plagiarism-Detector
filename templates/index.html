@@ -23,8 +23,17 @@
       
       <div class="container">  
         <form action = "{% url 'fileApp:upload' %}" method = "POST" enctype = "multipart/form-data">
-          <input type = "text" name = "filename" placeholder = "Enter your file name" >
-          <input type = "file" name = "uploadfiles" id="textInput" >
+          <input type = "text" name = "filename" placeholder = "Enter your file name" style="  width: 70%;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-image: url('searchicon.png');
+          background-position: 10px 10px; 
+          background-repeat: no-repeat;
+          padding: 12px 20px 12px 40px;">
+          <input type = "file" name = "uploadfiles">
           {% csrf_token %}
           <button class="uploadBtn">Submit document</button>
         </form>

@@ -17,7 +17,7 @@ const test = `[
   }
 ]`
 
-
+console.log('hello')
 
 const result = document.querySelector('.uploadBtn')
 const object = JSON.parse(test)

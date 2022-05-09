@@ -23,9 +23,10 @@ def send_file(request):
         
         r=main(myfile)
         print(r)
-
-
-        return render(request, 'result.html')
+        data={
+            "data_list" : r
+        }
+        return render(request, 'result.html', data)
 
 #        return HttpResponse("Uploaded!!")
 

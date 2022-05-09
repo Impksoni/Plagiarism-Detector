@@ -158,7 +158,14 @@ def main(myfile):
         cos_sin=1-result_nltk
         
         plagiarism=(cos_sin*100)
-        result[temp[i]]=plagiarism
+
+        variable = "data"+str(i)
+
+        variable ={
+            "file" : temp[i],
+            "value" : plagiarism           
+        }
+        result.update({"data"+str(i) : variable})
         #print('\n Plagiarism =%s' %plagiarism)
     #print(result)
     return result

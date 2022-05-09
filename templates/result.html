@@ -2,28 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div id="result">
-  <table>
-    <thead>
-      <tr id="this">
-        <th>Document Name</th>
-        <th>% plagarized</th>
-        <th>plagiarism test</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
-<div id="result1">
-<button><a href = '/'> Goto Home Page</a></button> 
-</div>
-{% block script %}
-<script src= './../static/js/result.js' ></script>
-{% endblock script %}
+        
+{% for k,v in data_list.items %}
+<h1>{{v.file}}</h1>
+<h1>{{v.value}}</h1>
+{% endfor %}
 
 
+
+    <div id="result1">
+    <button><a href = '/'> Goto Home Page</a></button> 
+    </div>
+    {% block script %}
+    <script src= './../static/js/result.js' ></script>
+    {% endblock script %}
 {% endblock content %}
-
-
-<!-- {% static 'result.js' %} -->

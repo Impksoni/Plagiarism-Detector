@@ -1,5 +1,8 @@
+from __future__ import absolute_import
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from program import main
 
 from . models import myuploadfile
 # Create your views here.
@@ -11,12 +14,16 @@ def login(request):
     return render(request, 'login.html')
 
     
-
+r={}
 def send_file(request):
     if request.method == "POST":
         name = request.POST.get("filename")
         myfile = request.FILES.get("uploadfiles")
         myuploadfile(fName=name, myFile=myfile).save()
+        
+        r=main(myfile)
+        print(r)
+
 
         return render(request, 'result.html')
 

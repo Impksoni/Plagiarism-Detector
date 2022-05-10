@@ -3,11 +3,22 @@
 {% block content %}
 
         
-{% for k,v in data_list.items %}
-<h1>{{v.file}}</h1>
-<h1>{{v.value}}</h1>
-{% endfor %}
-
+<table>
+    <thead>
+      <tr id="this">
+        <th>Document Name</th>
+        <th>% plagarized</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for k,v in data_list.items %}
+            <td> {{v.file}}</td>
+            <td>{{v.value}}</td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
 
 
     <div id="result1">

@@ -21,11 +21,39 @@ def send_file(request):
         myfile = request.FILES.get("uploadfiles")
         myuploadfile(fName=name, myFile=myfile).save()
         
+        queryset = myuploadfile.objects.all()
+        #print(queryset)
+        file=[]
+        name=[]
+        for obj in queryset:
+            name.append(obj.fName)
+            file.append(str(obj.myFile).lower())
+
+        file.sort()
+        name.sort()
+
         r=main(myfile)
-        print(r)
+        #print(data_queryset)
+        plag=[]
+        for i in range(len(r)):
+            plag.append(r["data"+str(i)]["value"])
+
+        #print(plag)
+
+        data_queryset={}
+        for i in range(len(queryset)):
+            data_queryset["data"+str(i)]={"name":name[i],"file":file[i],"value":plag[i]}
+
+        #print(data_queryset)
+
+        res=dict(sorted(data_queryset.items(),key = lambda x: x[1]['value'], reverse=True))
+        print(res)
+        
         data={
-            "data_list" : r
+            "data_list" : res
         }
+
+
         return render(request, 'result.html', data)
 
 #        return HttpResponse("Uploaded!!")

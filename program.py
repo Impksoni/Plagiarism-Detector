@@ -159,11 +159,10 @@ def main(myfile):
         
         plagiarism=(cos_sin*100)
 
-        variable = "data"+str(i)
 
         variable ={
-            "file" : temp[i],
-            "value" : plagiarism           
+            "file" : temp[i].lower(),
+            "value" : int(plagiarism)           
         }
         result.update({"data"+str(i) : variable})
         #print('\n Plagiarism =%s' %plagiarism)

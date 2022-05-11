@@ -13,7 +13,15 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
-    
+def signup(request):
+    return render(request, 'signup.html')
+
+def aboutus(request):
+    return render(request, 'aboutUs.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 r={}
 def send_file(request):
     if request.method == "POST":

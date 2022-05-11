@@ -5,9 +5,9 @@
 {% block content %}
 
   <div class="container">
-    <div class="login">
-      <div class="loginContent">
-        <form id= "loginForm">
+    
+      <div class="signinContent">
+        <form id= "signinForm">
           <div class="logInTitle">Have a account! Log in.</div>
           <label for="username">Username:</label>
           <input type="text" name="username" id="username" class="loginInput username">
@@ -16,24 +16,7 @@
           <button class="loginButton">Log In</button> 
         </form>
       </div>
-      
-      <div class="signInContent">
-        <form method="POST" id="signInForm">
-          <div class="signInTitle">Create a new account.</div>
-          <label for="firstname">First name:</label>
-          <input type="text" name="firstname" id="firstname" class="signIn">
-          <label for="lastname">Last name:</label>
-          <input type="text" name="lastname" id="lastname" class="signIn"> 
-          <label for="phoneNo">Phone no:</label>
-          <input type="number" name="phoneNo" placeholder="10 digit phone no. only" id="phoneNo" class="signIn"> 
-          <label for="email">Email:</label>
-          <input type="text" name="email" id="email" class="signIn"> 
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="signInPassword" class="signIn"> 
-          <button class="signInButton">Create an account</button> 
-        </form>
-      </div>
-    </div>
+
   </div>
 
 {% endblock %}

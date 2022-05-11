@@ -22,6 +22,8 @@ def aboutus(request):
 def contact(request):
     return render(request, 'contact.html')
 
+
+
 r={}
 def send_file(request):
     if request.method == "POST":

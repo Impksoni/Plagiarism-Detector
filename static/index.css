@@ -12,9 +12,7 @@ body{
   background-color: rgb(247, 247, 247);
   margin: 0 10px;
   box-shadow: 0 4px 2px -2px rgb(153, 153, 153);
-  position: fixed;
-  top: 0;
-  width: 100%;
+   
 }
 
 .navbarItem{

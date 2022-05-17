@@ -19,8 +19,13 @@
         <div class="navbarItem left"><a href="#">News</a></div>
         <div class="navbarItem left"><a href="/contact/">Contact</a></div>
         <div class="navbarItem left"><a href="/aboutus/">About</a></div> 
-        <div class="navbarItem right"><a href="/signup/">Sign Up</a></div>
-        <div class="navbarItem right"><a href="/login/">Log in</a></div>
+        {% if user.is_authenticated %}
+          <div class="navbarItem right"><a href="/logout/">Logout</a></div>
+          <div class="navbarItem right">Hello, {{user.first_name}} </a></div>
+        {% else %}
+          <div class="navbarItem right"><a href="/signup/">Sign Up</a></div>
+          <div class="navbarItem right"><a href="/login/">Log in</a></div>
+        {% endif %}
       </div>
       
       {% block content %}

@@ -7,16 +7,21 @@
   <div class="container">
     
       <div class="signinContent">
-        <form id= "signinForm">
+        <form action="" method="post" id= "signinForm">
+          {% csrf_token %}
           <div class="logInTitle">Have a account! Log in.</div>
-          <label for="username">Username:</label>
+          <label for="username">Roll Number:</label>
           <input type="text" name="username" id="username" class="loginInput username">
           <label for="password">Password:</label>
           <input type="password" name="password" id="logInPassword" class="loginInput password">
           <button class="loginButton">Log In</button> 
         </form>
       </div>
-
+  </div>
+  <div>
+    {% for message in messages %}
+    <h3> {{message}} </h3>
+    {% endfor %}
   </div>
 
 {% endblock %}

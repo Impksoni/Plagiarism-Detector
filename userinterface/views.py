@@ -1,20 +1,71 @@
 from __future__ import absolute_import
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
 
 from program import main
 
 from . models import myuploadfile
+
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        if username and password:
+
+            user = auth.authenticate(username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                print("Login successful")
+                return redirect("/")
+            else:
+                print('Username or Password is Incorrect')
+                messages.error(request, 'Username or Password is Incorrect')
+                return redirect("/login/")
+        else:
+            print('Fill out all fields')
+            messages.error(request, 'Fill out all the fields')
+    else:
+        return render(request,'login.html')
+
 
 def signup(request):
-    return render(request, 'signup.html')
+    if request.method == 'POST':
+        username=request.POST.get('username')
+        firstname=request.POST.get('firstname')
+        lastname=request.POST.get('lastname')
+        phoneNo=request.POST.get('phoneNo')
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            print("Enter correct roll")
+            messages.error(request, 'Account already created')
+            return redirect("/signup/")
+        elif User.objects.filter(email=email).exists():
+            print("Email already exits")
+            messages.error(request, 'Email already exits')
+            return redirect("/signup/")
+        else:        
+            myuser = User.objects.create_user(username=username,first_name = firstname,last_name = lastname,password=password,email=email)
+            myuser.save()
+            print('Your account has been created successfull!!')
+            return redirect('/login/')    
+    else:
+        return render(request, 'signup.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
 
 def aboutus(request):
     return render(request, 'aboutUs.html')

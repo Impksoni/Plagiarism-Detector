@@ -6,21 +6,26 @@
 
 <div class="container">
   <div class="signInContent">
-    <form method="POST" id="signInForm">
+    <form action=""  method="post" id="signInForm">
+      {% csrf_token %}
       <div class="signInTitle">Create a new account.</div>
+      <label for="username">Roll Number:</label>
+      <input type="text" name="username" id="username" class="signIn">
       <label for="firstname">First name:</label>
       <input type="text" name="firstname" id="firstname" class="signIn">
       <label for="lastname">Last name:</label>
       <input type="text" name="lastname" id="lastname" class="signIn"> 
-      <label for="phoneNo">Phone no:</label>
-      <input type="number" name="phoneNo" placeholder="10 digit phone no. only" id="phoneNo" class="signIn"> 
       <label for="email">Email:</label>
       <input type="text" name="email" id="email" class="signIn"> 
       <label for="password">Password:</label>
       <input type="password" name="password" id="signInPassword" class="signIn"> 
-      <button class="signInButton">Create an account</button> 
+      <button type = "submit" class="signInButton">Create an account</button> 
     </form>
   </div>
 </div>
-
+<div>
+  {% for message in messages %}
+  <h3> {{message}} </h3>
+  {% endfor %}
+</div>
 {% endblock %}

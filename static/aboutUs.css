@@ -1,176 +1,59 @@
-/* must be cleaned for layout */
-body{
-  margin: 0;
-
+#aboutUsBody {
+  position: relative;
+  margin: 0 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-* {
-  box-sizing: border-box;
-  font-family: Helvetica;
+.column {
+  margin-bottom: 16px;
+  padding: 0 8px;
 }
 
-.navbar{
-  overflow: hidden;
-  background-color: rgb(247, 247, 247);
-  margin: 0 10px;
-  box-shadow: 0 4px 2px -2px rgb(153, 153, 153);
-  position: absolute;
-  top: 0;
+.aboutUscard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
 }
 
-.navbarItem{
-  display: inline;
-  padding: 16px 0;
-  margin: 10px;
-
-}
-
-.navbarItem a{
+.about-section {
+  padding: 50px;
   text-align: center;
-  text-decoration: none;
-  display: inline;
-  padding: 16px;
-  color: rgba(7, 6, 6);
-  background-color: white;
-  font-weight: 550;
-  border: 2px solid rgb(30, 31, 30);
-  border-radius: 50px 20px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.navbarItem a:hover{
-  background-color: rgb(83, 83, 83);
+  background-color: #474e5d;
   color: white;
 }
 
-.navbarItem.left{
-  float: left;
+.AboutUsContainer {
+  padding: 0 16px;
 }
 
-.navbarItem.right{
-  float: right;
+.AboutUsContainer::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-.container {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-  position: relative;
-  background-color: 0px 2px 18px -1px rgba(3, 3, 3, 0.5);
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-top: 20px;
-  height: 100vh;
-
+.title {
+  color: grey;
 }
-.signInTitle{
-  padding: 6px;
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
   text-align: center;
-  font-size: 25px;
-  margin: 25px;
-}
-
-.signInContent{
-  position: relative;
-  width: 50%;
-  left: 30%;
-}
-
-/* from here clean */
-footer{
-  background-color: black;
-  margin-top: 20px;
-  bottom: 0;
-  position: fixed;
+  cursor: pointer;
   width: 100%;
 }
-footer > div{
-  color: white;
-  text-align: center;
-  height: 25px;
-}
-/*About us*/
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: rgb(223, 215, 215);
-  margin: 10px auto;
-  padding: 5px 30px;
-  width: 800px;
-  box-shadow: 0 0 5px black;
+
+.button:hover {
+  background-color: #555;
 }
 
-.hr {
-  display: flex;
-  align-items: center;
-}
-
-hr {
-  width: 30px;
-  height: 1px;
-  background: black;
-  margin: 0 15px;
-}
-
-h2 {
-  font-size: 25px;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-
-.mission-txt {
-  font-size: 18px;
-  font-weight: 500px;
-  font-style: italic;
-  margin-top: 0;
-}
-
-div img {
-  width: 150px;
-  filter: drop-shadow(0 10px 5px black);
-}
-
-p {
-  text-align: justify;
-}
-
-.faculties {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.unit {
-  margin: 25px;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.unit img {
-  border-radius: 100px;
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
-}
-
-.unit p {
-  text-align: left;
-  margin: 2px;
-}
-
-.unit p:first-of-type {
-  font-weight: bolder;
-  margin-bottom: 5px;
-}
-
-@media screen and (max-width:820px) {
-  .wrapper {
-    width: 80%;
-    padding: 5px 30px;
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
   }
 }

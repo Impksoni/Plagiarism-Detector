@@ -3,10 +3,15 @@
 {% load static %}
 
 {% block content %}
-
+<div id="aboutUsBody">
   <div class="container">
     
       <div class="signinContent">
+        <div>
+          {% for message in messages %}
+          <h3><center style="padding:8px; box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 8px; color: red;"> {{message}} </center></h3>
+          {% endfor %}
+        </div>
         <form action="" method="post" id= "signinForm">
           {% csrf_token %}
           <div class="logInTitle">Have a account! Log in.</div>
@@ -14,14 +19,11 @@
           <input type="text" name="username" id="username" class="loginInput username">
           <label for="password">Password:</label>
           <input type="password" name="password" id="logInPassword" class="loginInput password">
-          <button class="loginButton">Log In</button> 
+          <button class="loginButton" style="margin-bottom: 8px;">Log In</button>  
         </form>
+      <center id="registerCenter">Don't have an account?<a href="/signup/" id="register" style="text-decoration: none; color: green; padding: 4px;">Register</a></center>
       </div>
   </div>
-  <div>
-    {% for message in messages %}
-    <h3> {{message}} </h3>
-    {% endfor %}
-  </div>
+</div>
 
 {% endblock %}

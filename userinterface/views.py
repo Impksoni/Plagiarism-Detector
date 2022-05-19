@@ -2,16 +2,23 @@ from __future__ import absolute_import
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from program import main
 
-from . models import myuploadfile
+from . models import myuploadfile, reviewcontact
 
 # Create your views here.
 
+@login_required(login_url='/login/')
 def index(request):
     return render(request, 'index.html')
+
+
+def home(request):
+    return render(request, 'index.html')
+
 
 def login(request):
     if request.method == 'POST':
@@ -28,7 +35,7 @@ def login(request):
                 return redirect("/")
             else:
                 print('Username or Password is Incorrect')
-                messages.error(request, 'Username or Password is Incorrect')
+                messages.error(request, 'Roll Number or Password is Incorrect')
                 return redirect("/login/")
         else:
             print('Fill out all fields')
@@ -71,7 +78,16 @@ def aboutus(request):
     return render(request, 'aboutUs.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        first = request.POST.get('firstname')
+        last = request.POST.get('lastname')
+        description = request.POST.get('description')
+        email = request.POST.get('email')
+        reviewcontact(first=first,last=last,email=email,description=description).save()
+        messages.success(request, 'Your review submitted successfully')
+        return redirect('/contact/')
+    else:
+        return render(request, 'contact.html')
 
 
 
@@ -100,12 +116,20 @@ def send_file(request):
             plag.append(r["data"+str(i)]["value"])
 
         #print(plag)
-
+        string=""
         data_queryset={}
         for i in range(len(queryset)):
+            if plag[i] >=99:
+                dub= "Dublicated document submitted"
+            elif plag[i]<=40:
+                string="Submission successful"
+            else:
+                string="Submission failed!! Highly plagiarized"
             data_queryset["data"+str(i)]={"name":name[i],"file":file[i],"value":plag[i]}
 
         #print(data_queryset)
+
+
 
         res=dict(sorted(data_queryset.items(),key = lambda x: x[1]['value'], reverse=True))
         print(res)

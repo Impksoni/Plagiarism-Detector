@@ -12,7 +12,7 @@ body{
   background-color: rgb(247, 247, 247);
   margin: 0 10px;
   box-shadow: 0 4px 2px -2px rgb(153, 153, 153);
-   
+  position: relative;
 }
 
 .navbarItem{
@@ -51,16 +51,40 @@ body{
 
 .container {
   position: relative;
+  box-shadow: 0 4px 2px -2px rgb(153, 153, 153);
   background-color: 0px 2px 18px -1px rgba(3, 3, 3, 0.5);
   margin-left: 3%;
   margin-right: 3%;
-  margin-top: 20px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
 }
+#textLogo {
+  font-family: courier;
+  font-size: 60px;
+  font-weight: 900;
+  color: rgb(35, 135, 135);
+  padding: 10px;
+  margin: 5px;
+  text-decoration: underline;
+  text-decoration-color: red;
+  font-variant: small-caps;
+}
+
+#projectname {
+  width: 77%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
 .inputText {
   width: 100%;
   box-sizing: border-box;
@@ -71,7 +95,30 @@ body{
   background-image: url('searchicon.png');
   background-position: 10px 10px; 
   background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;}
+  padding: 12px 20px 12px 40px;
+  margin: 4px 8px;
+}
+
+#file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+#file-input::before {
+  content: 'Select some files';
+  display: inline-block;
+  border: 2px solid #f44336;
+  border-radius: 3px;
+  padding: 10px 10px;
+  outline: none;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  margin: 4px 8px;
+
+}
+#file-input:hover::before {
+  border-color: black;
+}
+
 
 .uploadBtn{
   margin: 4px;
@@ -89,6 +136,8 @@ body{
 .uploadBtn:hover{
   background-color: rgb(81, 177, 17);
   color: white;
+  margin: 4px 8px;
+
 }
 
 footer{
@@ -104,3 +153,7 @@ footer > div{
   height: 25px;
 
 }
+
+
+
+
